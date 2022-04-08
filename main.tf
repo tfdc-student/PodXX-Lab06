@@ -16,3 +16,17 @@ provider "mso" {
     platform = var.platform
     insecure = true
 }
+
+/*
+Deploy template
+
+THIS IS THE ONLY RESOURCE THAT IS NON-IDEMPOTENT!!!
+It will deploy the template in every run and it will not fail
+if there is no change and we deploy the template again.
+*/
+resource "mso_shema_template_deploy" "stretched" {
+  schema_id = mso_schema.ms_prod.id
+  template_name = local.stretched_template_name
+  side_id = data.mso_site.site1.id //Optional for deploy, mandatory for undeploy
+  undeploy = false
+}
