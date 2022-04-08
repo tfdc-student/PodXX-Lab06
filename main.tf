@@ -26,7 +26,7 @@ if there is no change and we deploy the template again.
 */
 resource "mso_shema_template_deploy" "deployer_stretched" {
   schema_id = mso_schema.ms_prod.id
-  template_name = local.stretched_template_name
+  template_name = mso_template.stretched_template.name
   side_id = data.mso_site.site1.id //Optional for deploy, mandatory for undeploy
   undeploy = false
 }
