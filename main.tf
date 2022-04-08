@@ -14,4 +14,5 @@ provider "mso" {
     # cisco-mso url
     url      = var.nd_url
     platform = var.platform
+    insecure = true
 }
