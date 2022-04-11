@@ -1,15 +1,24 @@
+variable "pod" {
+  type = string
+}
+
 variable "nd_username" {
-    type = string
+  type = string
 }
 
 variable "nd_password" {
-    type = string
+  type = string
 }
 
 variable "nd_url" {
-    type = string
+  type = string
 }
 
 variable "platform" {
-    type = string
+  type = string
+}
+
+variable "sites" {
+    type = list(string)
+    default = ["ACI-01","ACI-02"]
 }
